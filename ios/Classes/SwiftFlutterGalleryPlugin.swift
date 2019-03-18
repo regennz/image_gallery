@@ -2,10 +2,10 @@ import Flutter
 import UIKit
 import Photos
 
-public class SwiftFlutterGallaryPlugin: NSObject, FlutterPlugin {
+public class SwiftFlutterGalleryPlugin: NSObject, FlutterPlugin {
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "image_gallery", binaryMessenger: registrar.messenger())
-        let instance = SwiftFlutterGallaryPlugin()
+        let instance = SwiftFlutterGalleryPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
 

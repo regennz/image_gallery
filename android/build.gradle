@@ -1,4 +1,4 @@
-group 'adhoc.successive.com.fluttergallaryplugin'
+group 'adhoc.successive.com.fluttergalleryplugin'
 version '1.0-SNAPSHOT'
 
 buildscript {

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:image_gallery/flutter_gallary_plugin.dart';
+import 'package:image_gallery/flutter_gallery_plugin.dart';
 
 void main() => runApp(
     new MyApp());
@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> loadImageList() async {
     List allImageTemp;
-      allImageTemp = await FlutterGallaryPlugin.getAllImages;
+      allImageTemp = await FlutterGalleryPlugin.getAllImages;
 
 
     setState(() {

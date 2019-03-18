@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> loadImageList() async {
     List allImageTemp;
-      allImageTemp = await FlutterGallaryPlugin.getAllImages;
+      allImageTemp = await FlutterGalleryPlugin.getAllImages;
 
 
     setState(() {

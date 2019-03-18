@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-class FlutterGallaryPlugin {
+class FlutterGalleryPlugin {
   static const MethodChannel _channel =
       const MethodChannel('image_gallery');
 

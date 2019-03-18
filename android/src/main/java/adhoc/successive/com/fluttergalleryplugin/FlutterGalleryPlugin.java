@@ -1,4 +1,4 @@
-package adhoc.successive.com.fluttergallaryplugin;
+package adhoc.successive.com.fluttergalleryplugin;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -30,10 +30,10 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 
 /**
- * FlutterGallaryPlugin
+ * FlutterGalleryPlugin
  */
-/** FlutterGallaryPlugin */
-public class FlutterGallaryPlugin implements MethodCallHandler {
+/** FlutterGalleryPlugin */
+public class FlutterGalleryPlugin implements MethodCallHandler {
   Activity activity;
   MethodChannel methodChannel;
   private Application.ActivityLifecycleCallbacks activityLifecycleCallbacks;
@@ -42,10 +42,10 @@ public class FlutterGallaryPlugin implements MethodCallHandler {
 
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "image_gallery");
-    channel.setMethodCallHandler(new FlutterGallaryPlugin(registrar.activity(), channel,registrar));
+    channel.setMethodCallHandler(new FlutterGalleryPlugin(registrar.activity(), channel,registrar));
   }
 
-  public FlutterGallaryPlugin(Activity activity, MethodChannel methodChannel,Registrar  registrar) {
+  public FlutterGalleryPlugin(Activity activity, MethodChannel methodChannel,Registrar  registrar) {
     this.activity = activity;
     this.methodChannel = methodChannel;
     this.methodChannel.setMethodCallHandler(this);

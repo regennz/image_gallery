@@ -1,4 +1,4 @@
-package adhoc.successive.com.fluttergallarypluginexample;
+package adhoc.successive.com.fluttergallerypluginexample;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
