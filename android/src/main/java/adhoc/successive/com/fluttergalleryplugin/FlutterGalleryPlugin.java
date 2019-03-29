@@ -170,13 +170,14 @@ public class FlutterGalleryPlugin implements MethodCallHandler {
             MediaStore.Images.ImageColumns.DISPLAY_NAME,
             MediaStore.Images.ImageColumns.DATE_ADDED,
             MediaStore.Images.ImageColumns.TITLE};
-    Cursor c = activity.getContentResolver().query(uri, projection, null, null, null);
+    String sortOrder = MediaStore.Images.ImageColumns.DATE_ADDED + " DESC";
+    Cursor c = activity.getContentResolver().query(uri, projection, null, null, sortOrder);
     if (c != null) {
       while (c.moveToNext()) {
         //  ImageModel imageModel = new ImageModel();
-        Log.e("", "getAllImageList: " + c.getString(0));
-        Log.e("", "getAllImageList: " + c.getString(1));
-        Log.e("", "getAllImageList: " + c.getString(2));
+//        Log.e("", "getAllImageList: " + c.getString(0));
+//        Log.e("", "getAllImageList: " + c.getString(1));
+//        Log.e("", "getAllImageList: " + c.getString(2));
 
         allImageList.add(c.getString(0));
 
