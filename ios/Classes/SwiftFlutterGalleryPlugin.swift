@@ -8,7 +8,7 @@ public class SwiftFlutterGalleryPlugin: NSObject, FlutterPlugin {
         let instance = SwiftFlutterGalleryPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
-
+    
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         if (call.method == "getPlatformVersion") {
             result("iOS " + UIDevice.current.systemVersion)
@@ -20,8 +20,10 @@ public class SwiftFlutterGalleryPlugin: NSObject, FlutterPlugin {
                 let imgManager = PHImageManager.default()
                 let requestOptions = PHImageRequestOptions()
                 requestOptions.isSynchronous = true
+                requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
                 let fetchOptions = PHFetchOptions()
-                fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: true)]
+                fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: false)]
+                fetchOptions.fetchLimit = 20
                 
                 let fetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
                 var allImages = [String]()
@@ -37,7 +39,7 @@ public class SwiftFlutterGalleryPlugin: NSObject, FlutterPlugin {
                     let localIdentifier = asset.localIdentifier
                     savedLocalIdentifiers.append(localIdentifier)
                     
-                    imgManager.requestImage(for: asset, targetSize: CGSize(width: 512.0, height: 512.0), contentMode: PHImageContentMode.aspectFit, options: PHImageRequestOptions(), resultHandler:{(image, info) in
+                    imgManager.requestImage(for: asset, targetSize: CGSize(width: 512.0, height: 512.0), contentMode: PHImageContentMode.aspectFit, options: requestOptions, resultHandler:{(image, info) in
                         
                         if image != nil {
                             var imageData: Data?
